@@ -1,11 +1,11 @@
 @page "/datagrid-change-odd-row-bg"
-<isolation-enable>
-    <FluentDataGrid Items="@_people" RowStyle="@rowStyle">
+
+    <FluentDataGrid Items="@_people" RowStyle="@((_) => "fluent-data-grid-row")">
         <PropertyColumn Property="@(p => p.PersonId)" Sortable="true" />
         <PropertyColumn Property="@(p => p.Name)" Sortable="true" />
         <PropertyColumn Property="@(p => p.BirthDate)" Format="yyyy-MM-dd" Sortable="true" />
     </FluentDataGrid>
-</isolation-enable>
+
 @code {
     record Person(int PersonId, string Name, DateOnly BirthDate);
 
@@ -19,5 +19,5 @@
         new Person(12130, "Kenji Sato", new DateOnly(2004, 1, 9)),
     }.AsQueryable();
     
-    private Func<Person, string>? rowStyle => p => "fluent-data-grid-row";
+    // private Func<Person, string>? rowStyle => p => "fluent-data-grid-row";
 }
