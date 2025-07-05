@@ -1,0 +1,3 @@
+tr.fluent-data-grid-row:nth-child(odd) > td {
+    background-color: #f9f9f9 !important;/* Light gray background for odd rows */
+}
