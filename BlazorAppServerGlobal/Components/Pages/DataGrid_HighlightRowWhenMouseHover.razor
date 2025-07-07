@@ -1,14 +1,16 @@
-@page "/datagrid-change-odd-row-bg"
+@page "/datagrid-highlight-row-when-mouse-hover"
 
-<h1>奇数行に背景色を付ける</h1>
+<h1>Mouse Hover行をハイライト</h1>
 
-<FluentDataGrid Items="@_people" RowClass="@((_) => "mydatagrid-row")">
-    <PropertyColumn Property="@(p => p.PersonId)" Sortable="true" />
-    <PropertyColumn Property="@(p => p.Name)" Sortable="true" />
-    <PropertyColumn Property="@(p => p.BirthDate)" Format="yyyy-MM-dd" Sortable="true" />
+<FluentDataGrid Items="@_people" ShowHover="true">
+    <PropertyColumn Property="@(p => p.PersonId)" Sortable="true"/>
+    <PropertyColumn Property="@(p => p.Name)" Sortable="true"/>
+    <PropertyColumn Property="@(p => p.BirthDate)" Format="yyyy-MM-dd" Sortable="true"/>
 </FluentDataGrid>
 
 @code {
+
+
     record Person(int PersonId, string Name, DateOnly BirthDate);
 
     readonly IQueryable<Person> _people = new[]
